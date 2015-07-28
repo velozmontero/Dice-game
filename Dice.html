@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+</html>
+<head>
+    <title>Dice Roll</title>
+    <style>
+        body{
+                font-family: "calibri";
+        }
+        #button{
+            border:1px solid black;
+            width: 20%;
+            text-align: center;
+            margin: auto;
+            font-size: 300%;
+            margin-top: 125px;
+        }
+        #output {
+            width: 20%;
+            text-align: center;
+            margin: auto;
+            color: rgb(25, 62, 137);
+            margin-top: 50px;
+            font-size: 200%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="button">Click me to roll</div>
+    <p id="output"></p>
+    <script>
+        var par = document.getElementById("output");
+        function rollDice(){
+            var num = Math.random () * 6;
+            num = Math.floor(num);
+            num++;
+            var num2 = Math.random () * 6;
+            num2 = Math.floor(num2);
+            num2++;
+            par.innerHTML = "You rolled a "+ num + " and a " + num2;
+             if (num+num2===12) {
+                par.innerHTML += "<br> You Win!!!";
+            }
+        }
+
+        var btn = document.getElementById("button")
+        btn.onclick = rollDice;
+        
+        window.onkeydown = handleEnter;
+        
+        function handleEnter(e) {
+            if (e.keyCode === 13) {
+                rollDice();
+            }
+            
+        }
+    </script>
+</body>
